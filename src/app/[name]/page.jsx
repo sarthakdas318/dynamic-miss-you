@@ -104,8 +104,8 @@ export default function NamePage() {
       <a
         href="https://instagram.com/ig.surajit_07"
         target="_blank"
-        noopener
-        norefferer
+        rel="noopener noreferrer"
+        className="fixed bottom-4 right-4 z-50"
       >
         <motion.div
           initial={{ x: 100, opacity: 0 }}
@@ -114,7 +114,7 @@ export default function NamePage() {
             duration: 0.5,
             delay: 1,
           }}
-          className="fixed bottom-4 right-4 text-xs text-white/40 pointer-events-none select-none z-50 font-light"
+          className="text-xs text-white/40 select-none font-light"
         >
           {CREDIT}
         </motion.div>
