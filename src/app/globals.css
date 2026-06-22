@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Comfortaa", Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.font-cute {
+  font-family: "Comfortaa", cursive;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 114, 182, 0.5);
+}
+
+/* Background particle animations (CSS-only, GPU accelerated) */
+@keyframes starPulse {
+  0%, 100% { opacity: 0.15; transform: scale(0.6); }
+  50%       { opacity: 0.8;  transform: scale(1.2); }
+}
+
+@keyframes heartFloat {
+  0%, 100% { opacity: 0.15; transform: translateY(0px)   rotate(0deg); }
+  50%       { opacity: 0.4;  transform: translateY(-40px) rotate(15deg); }
+}
+
+/* Gradient background utility */
+.bg-cute-gradient {
+  background: linear-gradient(135deg, #0a0014 0%, #120022 100%);
+}
