@@ -1,55 +1,53 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useParams } from "next/navigation"
-import { motion, AnimatePresence } from "motion/react"
-import Loader from "@/components/Loader"
-import WelcomeScreen from "@/components/WelcomeScreen"
-import MissCounterScreen from "@/components/MissCounterScreen"
-import MessageScreen from "@/components/MessageScreen"
-import MemoriesScreen from "@/components/MemoriesScreen"
-import FinalScreen from "@/components/FinalScreen"
-import BackgroundAnimation from "@/components/BackgroundAnimation"
-import MusicPlayer from "@/components/MusicPlayer"
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
+import Loader from "@/components/Loader";
+import WelcomeScreen from "@/components/WelcomeScreen";
+import MissCounterScreen from "@/components/MissCounterScreen";
+import MessageScreen from "@/components/MessageScreen";
+import MemoriesScreen from "@/components/MemoriesScreen";
+import FinalScreen from "@/components/FinalScreen";
+import BackgroundAnimation from "@/components/BackgroundAnimation";
+import MusicPlayer from "@/components/MusicPlayer";
 
-const CREDIT = atob("QGlnLnN1cmFqaXRfMDc=")
+const CREDIT = atob("QGlnLnN1cmFqaXRfMDc=");
 
 export default function NamePage() {
-  const params = useParams()
-  const rawName = params?.name ?? ""
-  const name = rawName.charAt(0).toUpperCase() + rawName.slice(1).toLowerCase()
+  const params = useParams();
+  const rawName = params?.name ?? "";
+  const name = rawName.charAt(0).toUpperCase() + rawName.slice(1).toLowerCase();
 
-  const [currentScreen, setCurrentScreen] = useState(0)
-  const [isLoading, setIsLoading] = useState(true)
-  const [musicPlaying, setMusicPlaying] = useState(false)
-  const [showMusicControl, setShowMusicControl] = useState(false)
+  const [currentScreen, setCurrentScreen] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [showMusicControl, setShowMusicControl] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 4000)
-    return () => clearTimeout(timer)
-  }, [])
+      setIsLoading(false);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const nextScreen = () => {
     if (currentScreen === 0) {
-      setShowMusicControl(true)
-      setMusicPlaying(true)
+      setShowMusicControl(true);
+      setMusicPlaying(true);
     }
-    setCurrentScreen((prev) => (prev + 1) % 6)
-  }
+    setCurrentScreen((prev) => (prev + 1) % 6);
+  };
 
   if (isLoading) {
-    return <Loader />
+    return <Loader />;
   }
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden font-cute">
       <BackgroundAnimation />
 
-      {showMusicControl && (
-        <MusicPlayer musicPlaying={musicPlaying} />
-      )}
+      {showMusicControl && <MusicPlayer musicPlaying={musicPlaying} />}
 
       <AnimatePresence mode="wait">
         {currentScreen === 0 && (
@@ -111,9 +109,17 @@ export default function NamePage() {
           duration: 0.5,
           delay: 1,
         }}
-        className="fixed bottom-4 right-4 text-xs text-white/40 pointer-events-none select-none z-50 font-light">
-        {CREDIT}
+        className="fixed bottom-4 right-4 text-xs text-white/40 pointer-events-none select-none z-50 font-light"
+      >
+        <a
+          href="https://instagram.com/ig.surajit_07"
+          target="_blank"
+          noopener
+          norefferer
+        >
+          {CREDIT}
+        </a>
       </motion.div>
     </div>
-  )
+  );
 }
