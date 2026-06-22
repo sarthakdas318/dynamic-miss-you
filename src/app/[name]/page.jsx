@@ -101,25 +101,24 @@ export default function NamePage() {
           />
         )}
       </AnimatePresence>
-
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{
-          duration: 0.5,
-          delay: 1,
-        }}
-        className="fixed bottom-4 right-4 text-xs text-white/40 pointer-events-none select-none z-50 font-light"
+      <a
+        href="https://instagram.com/ig.surajit_07"
+        target="_blank"
+        noopener
+        norefferer
       >
-        <a
-          href="https://instagram.com/ig.surajit_07"
-          target="_blank"
-          noopener
-          norefferer
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: 1,
+          }}
+          className="fixed bottom-4 right-4 text-xs text-white/40 pointer-events-none select-none z-50 font-light"
         >
           {CREDIT}
-        </a>
-      </motion.div>
+        </motion.div>
+      </a>
     </div>
   );
 }
