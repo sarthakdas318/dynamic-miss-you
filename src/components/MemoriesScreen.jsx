@@ -64,7 +64,7 @@ export default function MemoriesScreen({ onNext, ...motionProps }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
             >
-                See Our Album 💌
+                One Last Thing 💝
             </motion.button>
         </motion.div>
     )

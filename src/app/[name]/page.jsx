@@ -8,7 +8,6 @@ import WelcomeScreen from "@/components/WelcomeScreen"
 import MissCounterScreen from "@/components/MissCounterScreen"
 import MessageScreen from "@/components/MessageScreen"
 import MemoriesScreen from "@/components/MemoriesScreen"
-import LoveAlbumScreen from "@/components/LoveAlbumScreen"
 import FinalScreen from "@/components/FinalScreen"
 import BackgroundAnimation from "@/components/BackgroundAnimation"
 import MusicPlayer from "@/components/MusicPlayer"
@@ -95,16 +94,6 @@ export default function NamePage() {
           />
         )}
         {currentScreen === 4 && (
-          <LoveAlbumScreen
-            key="album"
-            onNext={nextScreen}
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -60 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-          />
-        )}
-        {currentScreen === 5 && (
           <FinalScreen
             key="final"
             name={name}
